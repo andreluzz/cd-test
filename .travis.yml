@@ -3,8 +3,6 @@ go:
  - master
 
 script:
-- go go get -v -t -d ./...
-
 - go test -v ./...
 
 - go build -ldflags "-X main.version=$TRAVIS_TAG" -o cd-test-linux.sh -i .
@@ -13,6 +11,5 @@ deploy:
   provider: releases
   draft: true
   api_key: "eis8p27PKzPZRUHXV+2FrJ4cNkAj8DN/LCkLbktucyzmmCt2JzKA2CLqWRFH1Wkh"
+  skip_cleanup: true
   file: $TRAVIS_BUILD_DIR/cd-test-linux.sh
-  on:
-    tags: true
