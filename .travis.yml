@@ -2,10 +2,6 @@ language: go
 go:
  - master
 
-branches:
-  only:
-  - master
-
 before_install:
 - if [ -z "$TRAVIS_TAG" ]; then exit 0; fi
 
