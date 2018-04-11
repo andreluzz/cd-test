@@ -1,4 +1,4 @@
-version: 2.1.{build}
+version: 1.1.{build}
 
 branches:
   only:
@@ -27,7 +27,7 @@ install:
     go get -v -t -d ./...
 
 build_script:
-- cmd: go build -ldflags "-X main.version=%APPVERSION%" -o _buildOutput\cas-xog.exe -i .
+- cmd: go build -ldflags "-X main.version=%APPVERSION%" -o _buildOutput\cd-test.exe -i .
 
 test_script:
 - ps: >-

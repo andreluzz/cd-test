@@ -1,6 +1,20 @@
+# Only build tags
+if: tag IS present
+
 language: go
 go:
- - tip
+ - master
 
 script:
+- go go get -v -t -d ./...
+
 - go test -v ./...
+
+- go build -ldflags "-X main.version=$TRAVIS_TAG" -o cd-test-linux -i .
+
+deploy:
+  provider: releases
+  api_key: ${GITHUB_OAUTH_TOKEN}
+  draft: true
+  on:
+    tags: true
