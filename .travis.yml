@@ -5,16 +5,24 @@ language: go
 go:
  - master
 
+branches:
+  only:
+  - master
+
+before_install:
+- if [ -z "$TRAVIS_TAG" ]; then exit 0; fi
+
 script:
 - go go get -v -t -d ./...
 
 - go test -v ./...
 
-- go build -ldflags "-X main.version=$TRAVIS_TAG" -o cd-test-linux -i .
+- go build -ldflags "-X main.version=$TRAVIS_TAG" -o cd-test-linux.sh -i .
 
 deploy:
   provider: releases
-  api_key: ${GITHUB_OAUTH_TOKEN}
   draft: true
+  api_key: "eis8p27PKzPZRUHXV+2FrJ4cNkAj8DN/LCkLbktucyzmmCt2JzKA2CLqWRFH1Wkh"
+  file: $TRAVIS_BUILD_DIR/cd-test-linux.sh
   on:
     tags: true
