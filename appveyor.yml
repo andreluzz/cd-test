@@ -40,17 +40,16 @@ test_script:
     bash codecov.sh -f "coverage.txt" -t 331bd826-0c46-49c9-925e-b6418fbceeb9
 
 artifacts:
-- path: _buildOutput\cas-xog.exe
+- path: _buildOutput\cd-test.exe
   name: binary
-- path: xogRead.xml
-  name: config
 
 deploy:
 - provider: GitHub
   tag: v$(appveyor_build_version)
-  release: cas-xog $(appveyor_build_version)
+  release: cd-test $(appveyor_build_version)
   description: 'This version, including new features and bug fixes, has been compiled with CI to increase stability.'
   auth_token:
     secure: eis8p27PKzPZRUHXV+2FrJ4cNkAj8DN/LCkLbktucyzmmCt2JzKA2CLqWRFH1Wkh
-  artifact: binary,config
+  artifact: binary
   force_update: true
+s
