@@ -52,4 +52,3 @@ deploy:
     secure: eis8p27PKzPZRUHXV+2FrJ4cNkAj8DN/LCkLbktucyzmmCt2JzKA2CLqWRFH1Wkh
   artifact: binary
   force_update: true
-s
