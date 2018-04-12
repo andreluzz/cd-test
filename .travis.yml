@@ -11,6 +11,6 @@ deploy:
   provider: releases
   draft: true
   api_key:
-    secure: 2230fef6e72986b165f99e8a32c8e06aba1518ee
+    secure: eis8p27PKzPZRUHXV+2FrJ4cNkAj8DN/LCkLbktucyzmmCt2JzKA2CLqWRFH1Wkh
   skip_cleanup: true
   file: $TRAVIS_BUILD_DIR/cd-test-linux.sh
